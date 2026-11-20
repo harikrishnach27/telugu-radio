@@ -653,3 +653,48 @@ header .install-actions .install-help {
     gap: 5px;
   }
 }
+/* Fix overlapping install controls on mobile */
+@media (max-width: 600px) {
+  header .install-actions {
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    gap: 10px !important;
+
+    margin: 12px 0 4px !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    clear: both;
+  }
+
+  header .install-actions .install-button {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    float: none !important;
+
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 36px !important;
+
+    margin: 0 !important;
+    padding: 8px 13px !important;
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    box-sizing: border-box;
+  }
+}
