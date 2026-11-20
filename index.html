@@ -1,1 +1,137 @@
 
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>తెలుగు ఆడియో వార్తలు</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f4f6fb;color:#172033;font-family:Arial,sans-serif}
+header{background:#123b70;color:white;padding:25px 6%}
+header h1{margin:0;font-size:27px}
+header p{margin:8px 0 0;color:#dbeafe}
+main{max-width:1050px;margin:25px auto;padding:0 16px}
+.panel{background:white;border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 3px 15px #14213d0c}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+button{border:0;border-radius:8px;padding:11px 17px;background:#e8eef8;color:#173b68;cursor:pointer}
+button.active{background:#174b87;color:white}
+input,select{width:100%;padding:12px;border:1px solid #d7deea;border-radius:8px;background:white}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+h2{font-size:19px;margin-top:0}
+.status{color:#64748b;font-size:13px}
+.bulletin{padding:15px 0;border-bottom:1px solid #edf0f5}
+.bulletin:last-child{border:0}
+.bulletin h3{font-size:16px;margin:0 0 7px}
+.bulletin p{font-size:13px;color:#64748b;margin:0 0 10px}
+.play{background:#1762a9;color:white}
+.empty{text-align:center;padding:35px 10px;color:#64748b}
+footer{text-align:center;color:#718096;padding:25px;font-size:13px}
+@media(max-width:650px){.filters{grid-template-columns:1fr}header h1{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+<h1>తెలుగు ఆడియో వార్తలు</h1>
+<p>NSD Telugu • అన్ని RNU తెలుగు కేంద్రాలు</p>
+</header>
+
+<main>
+<section class="panel">
+<h2>వార్తల ఆర్కైవ్</h2>
+<div class="tabs">
+<button class="active" data-type="all">అన్నీ</button>
+<button data-type="NSD">NSD తెలుగు</button>
+<button data-type="RNU">RNU తెలుగు</button>
+</div>
+
+<div class="filters">
+<input id="search" placeholder="వార్తల పేరు లేదా కేంద్రం వెతకండి">
+<input id="from" type="date" aria-label="From date">
+<input id="to" type="date" aria-label="To date">
+</div>
+</section>
+
+<section class="panel">
+<h2>ఆడియో బులెటిన్లు</h2>
+<p class="status" id="count">ఆర్కైవ్ కనెక్షన్ ఇంకా ఏర్పాటు కాలేదు</p>
+<div id="results">
+<div class="empty">
+<p>🎧</p>
+<strong>తెలుగు ఆడియో బులెటిన్లు త్వరలో ఇక్కడ కనిపిస్తాయి</strong>
+<p>NewsOnAIR డేటా సింక్ కనెక్ట్ చేసిన తర్వాత ఆర్కైవ్ అందుబాటులోకి వస్తుంది.</p>
+</div>
+</div>
+</section>
+
+<section class="panel">
+<h2>ఆడియో ప్లేయర్</h2>
+<audio id="player" controls style="width:100%">
+మీ బ్రౌజర్ ఆడియో ప్లేబ్యాక్‌కు మద్దతు ఇవ్వదు.
+</audio>
+<p class="status" id="nowPlaying">ఆడియో ఎంచుకోలేదు</p>
+</section>
+</main>
+
+<footer>
+తెలుగు ఆడియో వార్తల ఆర్కైవ్ | NSD + RNU
+</footer>
+
+<script>
+let bulletins = [];
+let category = "all";
+
+function render(){
+ const q=document.getElementById("search").value.toLowerCase();
+ const from=document.getElementById("from").value;
+ const to=document.getElementById("to").value;
+ const filtered=bulletins.filter(b=>{
+  return (category==="all"||b.type===category) &&
+   (b.title+" "+b.station).toLowerCase().includes(q) &&
+   (!from||b.date>=from) && (!to||b.date<=to);
+ });
+ document.getElementById("count").textContent=
+  filtered.length+" బులెటిన్లు";
+ const results=document.getElementById("results");
+ results.innerHTML="";
+ if(!filtered.length){
+  results.innerHTML='<div class="empty">ప్రస్తుతం బులెటిన్లు లేవు. డేటా సింక్ కనెక్ట్ చేయాలి.</div>';
+  return;
+ }
+ filtered.forEach(b=>{
+  const item=document.createElement("div");
+  item.className="bulletin";
+  const title=document.createElement("h3");
+  title.textContent=b.title;
+  const info=document.createElement("p");
+  info.textContent=b.station+" • "+b.date+" • "+b.type;
+  const play=document.createElement("button");
+  play.className="play";
+  play.textContent="▶ వినండి";
+  play.onclick=()=>{
+   const player=document.getElementById("player");
+   player.src=b.audioUrl;
+   player.play();
+   document.getElementById("nowPlaying").textContent=b.title;
+  };
+  item.append(title,info,play);
+  results.appendChild(item);
+ });
+}
+
+document.querySelectorAll("[data-type]").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  category=btn.dataset.type;
+  document.querySelectorAll("[data-type]").forEach(x=>x.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+ });
+});
+["search","from","to"].forEach(id=>{
+ document.getElementById(id).addEventListener("input",render);
+});
+render();
+</script>
+</body>
+</html>
+
