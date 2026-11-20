@@ -1,13 +1,18 @@
-
 {
   "id": "./",
-  "name": "తెలుగు ఆడియో వార్తలు",
-  "short_name": "తెలుగు ఆడియో",
-  "description": "Telugu NSD and RNU audio news archive",
+  "name": "తెలుగు రేడియో వార్తలు",
+  "short_name": "తెలుగు రేడియో",
+  "description": "తెలుగు NSD మరియు RNU ఆడియో వార్తల ఆర్కైవ్",
   "lang": "te-IN",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui",
+    "browser"
+  ],
   "orientation": "any",
   "background_color": "#FFF8F1",
   "theme_color": "#FF9933",
@@ -29,6 +34,13 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "తాజా వార్తలు",
+      "short_name": "తాజా వార్తలు",
+      "url": "./"
     }
   ]
 }
