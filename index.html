@@ -10,10 +10,20 @@
 
 <body>
 
+
 <header>
  <h1>తెలుగు ఆడియో వార్తలు</h1>
  <p>NSD తెలుగు • అన్ని RNU తెలుగు కేంద్రాలు</p>
+
+ <button
+   type="button"
+   class="theme-toggle"
+   id="themeToggle"
+   aria-label="Switch colour theme">
+   🌙 Dark
+ </button>
 </header>
+
 
 <main>
 
@@ -91,6 +101,9 @@
 </footer>
 
 <script>
+
+const player = document.getElementById("player");
+ 
 const ARCHIVE_URL =
  "./archive.json?updated=" + Date.now();
 
@@ -311,6 +324,51 @@ player.addEventListener("ended",() => {
   "ఆడియో పూర్తయింది";
 });
 
+
+// LIGHT / DARK THEME
+
+const themeToggle = document.getElementById("themeToggle");
+
+const savedTheme = localStorage.getItem("archive-theme");
+
+const systemDark = window.matchMedia(
+  "(prefers-color-scheme: dark)"
+).matches;
+
+let currentTheme = savedTheme ||
+  (systemDark ? "dark" : "light");
+
+function applyTheme(theme) {
+  currentTheme = theme;
+
+  document.documentElement.setAttribute(
+    "data-theme",
+    theme
+  );
+
+  themeToggle.textContent =
+    theme === "dark" ? "☀️ Light" : "🌙 Dark";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    theme === "dark"
+      ? "Switch to light theme"
+      : "Switch to dark theme"
+  );
+
+  localStorage.setItem("archive-theme", theme);
+}
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(
+    currentTheme === "dark" ? "light" : "dark"
+  );
+});
+
+applyTheme(currentTheme);
+
+
+ 
 loadArchive();
 </script>
 
