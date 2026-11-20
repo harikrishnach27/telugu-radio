@@ -78,59 +78,123 @@ footer{text-align:center;color:#718096;padding:25px;font-size:13px}
 </footer>
 
 <script>
+
+const ARCHIVE_URL =
+  "./archive.json?updated=" + Date.now();
+
 let bulletins = [];
 let category = "all";
 
-function render(){
- const q=document.getElementById("search").value.toLowerCase();
- const from=document.getElementById("from").value;
- const to=document.getElementById("to").value;
- const filtered=bulletins.filter(b=>{
-  return (category==="all"||b.type===category) &&
-   (b.title+" "+b.station).toLowerCase().includes(q) &&
-   (!from||b.date>=from) && (!to||b.date<=to);
- });
- document.getElementById("count").textContent=
-  filtered.length+" బులెటిన్లు";
- const results=document.getElementById("results");
- results.innerHTML="";
- if(!filtered.length){
-  results.innerHTML='<div class="empty">ప్రస్తుతం బులెటిన్లు లేవు. డేటా సింక్ కనెక్ట్ చేయాలి.</div>';
-  return;
- }
- filtered.forEach(b=>{
-  const item=document.createElement("div");
-  item.className="bulletin";
-  const title=document.createElement("h3");
-  title.textContent=b.title;
-  const info=document.createElement("p");
-  info.textContent=b.station+" • "+b.date+" • "+b.type;
-  const play=document.createElement("button");
-  play.className="play";
-  play.textContent="▶ వినండి";
-  play.onclick=()=>{
-   const player=document.getElementById("player");
-   player.src=b.audioUrl;
-   player.play();
-   document.getElementById("nowPlaying").textContent=b.title;
-  };
-  item.append(title,info,play);
-  results.appendChild(item);
- });
+async function loadArchive() {
+  const status = document.getElementById("count");
+
+  try {
+    status.textContent = "వార్తలు లోడ్ అవుతున్నాయి...";
+
+    const response = await fetch(ARCHIVE_URL, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("Archive unavailable");
+    }
+
+    const data = await response.json();
+    bulletins = data.items || [];
+
+    render();
+    status.textContent =
+      bulletins.length + " తెలుగు బులెటిన్లు";
+  } catch (error) {
+    status.textContent =
+      "ఆర్కైవ్ లోడ్ కాలేదు. మళ్లీ ప్రయత్నించండి.";
+    console.error(error);
+  }
 }
 
-document.querySelectorAll("[data-type]").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  category=btn.dataset.type;
-  document.querySelectorAll("[data-type]").forEach(x=>x.classList.remove("active"));
-  btn.classList.add("active");
-  render();
- });
+function render() {
+  const q = document.getElementById("search")
+    .value.toLowerCase();
+
+  const from = document.getElementById("from").value;
+  const to = document.getElementById("to").value;
+
+  const filtered = bulletins.filter(b => {
+    const searchable =
+      (b.title + " " + b.station).toLowerCase();
+
+    return (
+      (category === "all" || b.type === category) &&
+      searchable.includes(q) &&
+      (!from || b.date >= from) &&
+      (!to || b.date <= to)
+    );
+  });
+
+  const results = document.getElementById("results");
+  results.innerHTML = "";
+
+  document.getElementById("count").textContent =
+    filtered.length + " బులెటిన్లు";
+
+  if (!filtered.length) {
+    results.textContent = "బులెటిన్లు కనుగొనబడలేదు.";
+    return;
+  }
+
+  filtered.forEach(b => {
+    const item = document.createElement("div");
+    item.className = "bulletin";
+
+    const title = document.createElement("h3");
+    title.textContent = b.title;
+
+    const info = document.createElement("p");
+    info.textContent =
+      `${b.station} • ${b.date} • ${b.type}`;
+
+    const play = document.createElement("button");
+    play.className = "play";
+    play.textContent = "▶ వినండి";
+
+    play.onclick = () => {
+      if (b.audio_url) {
+        const player = document.getElementById("player");
+        player.src = b.audio_url;
+        player.play();
+        document.getElementById("nowPlaying").textContent =
+          b.title;
+      } else if (b.source_url) {
+        window.open(b.source_url, "_blank");
+      } else {
+        alert("ఈ బులెటిన్‌కు ప్రత్యక్ష ఆడియో లింక్ అందుబాటులో లేదు.");
+      }
+    };
+
+    item.append(title, info, play);
+    results.appendChild(item);
+  });
+}
+
+document.querySelectorAll("[data-type]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    category = btn.dataset.type;
+
+    document.querySelectorAll("[data-type]")
+      .forEach(x => x.classList.remove("active"));
+
+    btn.classList.add("active");
+    render();
+  });
 });
-["search","from","to"].forEach(id=>{
- document.getElementById(id).addEventListener("input",render);
+
+["search", "from", "to"].forEach(id => {
+  document.getElementById(id)
+    .addEventListener("input", render);
 });
-render();
+
+loadArchive();
+ 
 </script>
 </body>
 </html>
