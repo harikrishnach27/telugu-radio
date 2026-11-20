@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# Prevent two sync runs from pushing simultaneously.
+concurrency:
+  group: telugu-audio-sync-main
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -16,6 +21,8 @@ jobs:
     steps:
       - name: Get repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -29,12 +36,37 @@ jobs:
       - name: Sync Telugu bulletins
         run: python sync.py
 
-      - name: Save archive
+      - name: Save and push archive
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add archive.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Update Telugu audio archive"
-            git push
+
+          if git diff --cached --quiet; then
+            echo "No archive changes to commit."
+            exit 0
           fi
+
+          git commit -m "Update Telugu audio archive"
+
+          # Incorporate any newer commits from GitHub.
+          git fetch origin main
+          git rebase FETCH_HEAD
+
+          # Retry if another update reaches main during the push.
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Archive successfully pushed."
+              exit 0
+            fi
+
+            if [ "$attempt" -lt 3 ]; then
+              echo "Push rejected. Fetching latest main and retrying..."
+              git fetch origin main
+              git rebase FETCH_HEAD
+            fi
+          done
+
+          echo "Unable to push archive after 3 attempts."
+          exit 1
