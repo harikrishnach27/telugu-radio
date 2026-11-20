@@ -1,1 +1,554 @@
 
+/* =========================================
+   TELUGU AUDIO ARCHIVE
+   Tricolour + Saffron + Maroon Design
+   Responsive Light / Dark Themes
+========================================= */
+
+/* 1. THEME VARIABLES */
+
+:root {
+  color-scheme: light;
+
+  --saffron: #FF9933;
+  --saffron-dark: #E87516;
+  --maroon: #800020;
+  --maroon-light: #A52A45;
+  --green: #138808;
+
+  --background: #FFF8F1;
+  --surface: #FFFFFF;
+  --surface-alt: #FFF0E1;
+
+  --text: #352027;
+  --muted: #78656A;
+  --border: #F0DCD1;
+
+  --header-text: #491D16;
+  --header-subtext: #642D1C;
+
+  --player-bg: #491321;
+  --player-text: #FFFFFF;
+  --player-muted: #F0D1D9;
+
+  --button-bg: #800020;
+  --button-hover: #A52A45;
+  --button-text: #FFFFFF;
+
+  --tab-bg: #F5E6E5;
+  --tab-text: #800020;
+  --tag-bg: #FFF0DB;
+  --tag-text: #803B13;
+
+  --shadow: 0 5px 22px rgba(95, 30, 40, 0.07);
+}
+
+/* 2. DARK THEME */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --background: #1C1418;
+  --surface: #2A1E24;
+  --surface-alt: #39232C;
+
+  --text: #FFF1E9;
+  --muted: #D0B9BF;
+  --border: #513540;
+
+  --header-text: #3B170C;
+  --header-subtext: #542519;
+
+  --player-bg: #110C10;
+  --player-text: #FFF5F0;
+  --player-muted: #D8BAC4;
+
+  --button-bg: #A52A45;
+  --button-hover: #C34460;
+  --button-text: #FFFFFF;
+
+  --tab-bg: #432A34;
+  --tab-text: #FFD2A3;
+  --tag-bg: #4A302A;
+  --tag-text: #FFD0A0;
+
+  --saffron: #FFAD55;
+  --saffron-dark: #FF9933;
+  --maroon: #A52A45;
+  --maroon-light: #C34460;
+
+  --shadow: 0 5px 22px rgba(0, 0, 0, 0.22);
+}
+
+/* 3. GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--background);
+  color: var(--text);
+  font-family: Arial, "Noto Sans Telugu", sans-serif;
+  line-height: 1.55;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--saffron);
+  outline-offset: 3px;
+}
+
+a {
+  color: var(--maroon);
+}
+
+img,
+audio {
+  max-width: 100%;
+}
+
+/* 4. HEADER */
+
+header {
+  position: relative;
+  padding: 25px 5%;
+  background: var(--saffron);
+  color: var(--header-text);
+  border-bottom: 5px solid var(--maroon);
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--green);
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(21px, 3vw, 30px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: var(--header-subtext);
+  font-size: 14px;
+}
+
+/* 5. MAIN CONTENT */
+
+main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 28px auto;
+  padding: 0;
+}
+
+.panel {
+  background: var(--surface);
+  color: var(--text);
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+h2 {
+  font-size: 19px;
+  margin: 0 0 16px;
+  color: var(--maroon);
+}
+
+[data-theme="dark"] h2 {
+  color: var(--saffron);
+}
+
+/* 6. SEARCH INPUTS */
+
+input,
+select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 45px;
+  padding: 11px 13px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--saffron-dark);
+  outline: none;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* 7. FILTER LAYOUT */
+
+.filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 13px;
+}
+
+.filter-extra {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 14px;
+}
+
+/* 8. CATEGORY TABS */
+
+.tabs {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+button {
+  border: 0;
+  padding: 11px 17px;
+  border-radius: 9px;
+  cursor: pointer;
+  background: var(--tab-bg);
+  color: var(--tab-text);
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+.tabs button.active {
+  background: var(--maroon);
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .tabs button.active {
+  background: var(--saffron);
+  color: #32150D;
+}
+
+/* 9. AUDIO PLAYER */
+
+.player-panel {
+  background: var(--player-bg);
+  color: var(--player-text);
+  border-radius: 17px;
+  padding: 24px;
+  margin-bottom: 22px;
+  border-left: 5px solid var(--saffron);
+  box-shadow: var(--shadow);
+}
+
+.player-panel h2 {
+  color: var(--saffron);
+}
+
+#playerTitle {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  overflow-wrap: anywhere;
+}
+
+.player-info {
+  color: var(--player-muted);
+  font-size: 13px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+audio {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border-radius: 30px;
+  accent-color: var(--saffron);
+}
+
+#playerStatus {
+  margin-top: 9px;
+}
+
+/* 10. BULLETIN LIST */
+
+.bulletin {
+  padding: 17px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.bulletin:last-child {
+  border-bottom: 0;
+}
+
+.bulletin h3 {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 6px;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.bulletin p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.play {
+  background: var(--button-bg);
+  color: var(--button-text);
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 42px;
+}
+
+.play:hover {
+  background: var(--button-hover);
+}
+
+/* 11. TAGS AND STATUS */
+
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.empty {
+  text-align: center;
+  padding: 35px 15px;
+  color: var(--muted);
+}
+
+/* 12. THEME SWITCH BUTTON */
+
+.theme-toggle {
+  position: absolute;
+  right: 5%;
+  top: 24px;
+  background: var(--maroon);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 30px;
+  padding: 9px 14px;
+  font-size: 13px;
+}
+
+.theme-toggle:hover {
+  background: var(--maroon-light);
+}
+
+/* 13. FOOTER */
+
+footer {
+  text-align: center;
+  padding: 25px 15px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+}
+
+/* 14. TABLET RESPONSIVENESS */
+
+@media (max-width: 800px) {
+  main {
+    width: calc(100% - 28px);
+    margin: 22px auto;
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters > input {
+    grid-column: 1 / -1;
+  }
+
+  .panel {
+    padding: 18px;
+  }
+}
+
+/* 15. MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 16px;
+    padding-right: 125px;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  header p {
+    font-size: 12px;
+  }
+
+  .theme-toggle {
+    right: 12px;
+    top: 20px;
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  main {
+    width: calc(100% - 20px);
+    margin: 17px auto;
+  }
+
+  .panel {
+    padding: 15px;
+    border-radius: 13px;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 17px;
+  }
+
+  .filters,
+  .filter-extra {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .filters > input {
+    grid-column: auto;
+  }
+
+  .tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .tabs button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .player-panel {
+    padding: 18px 15px;
+    border-radius: 14px;
+  }
+
+  .bulletin {
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .bulletin h3 {
+    font-size: 14px;
+  }
+
+  .play {
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+}
+
+/* 16. SMALL MOBILE SCREENS */
+
+@media (max-width: 360px) {
+  header {
+    padding-right: 110px;
+  }
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  .theme-toggle {
+    right: 8px;
+    font-size: 10px;
+  }
+
+  .bulletin {
+    flex-direction: column;
+  }
+
+  .play {
+    width: 100%;
+  }
+}
+
+/* 17. ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
