@@ -5,197 +5,416 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>తెలుగు ఆడియో వార్తలు</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#f4f6fb;color:#172033;font-family:Arial,sans-serif}
-header{background:#123b70;color:white;padding:25px 6%}
-header h1{margin:0;font-size:27px}
-header p{margin:8px 0 0;color:#dbeafe}
-main{max-width:1050px;margin:25px auto;padding:0 16px}
-.panel{background:white;border-radius:14px;padding:20px;margin-bottom:18px;box-shadow:0 3px 15px #14213d0c}
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
-button{border:0;border-radius:8px;padding:11px 17px;background:#e8eef8;color:#173b68;cursor:pointer}
+body{
+ margin:0;
+ background:#f3f6fb;
+ color:#172033;
+ font-family:Arial,sans-serif
+}
+header{
+ background:#123b70;
+ color:white;
+ padding:24px 5%;
+}
+header h1{margin:0;font-size:26px}
+header p{margin:7px 0 0;color:#dbeafe}
+main{max-width:1100px;margin:25px auto;padding:0 15px}
+.panel{
+ background:white;
+ padding:20px;
+ border-radius:14px;
+ margin-bottom:18px;
+ box-shadow:0 3px 15px #14213d0c
+}
+h2{font-size:19px;margin:0 0 15px}
+input,select{
+ width:100%;
+ padding:12px;
+ border:1px solid #d8dfeb;
+ border-radius:8px;
+ background:white;
+ color:#172033
+}
+.filters{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr;
+ gap:12px
+}
+.filter-extra{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:12px
+}
+label{
+ display:block;
+ font-size:13px;
+ color:#64748b;
+ margin-bottom:6px
+}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+button{
+ border:0;
+ padding:11px 16px;
+ border-radius:8px;
+ cursor:pointer;
+ background:#e8eef8;
+ color:#173b68
+}
 button.active{background:#174b87;color:white}
-input,select{width:100%;padding:12px;border:1px solid #d7deea;border-radius:8px;background:white}
-.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
-h2{font-size:19px;margin-top:0}
-.status{color:#64748b;font-size:13px}
-.bulletin{padding:15px 0;border-bottom:1px solid #edf0f5}
+.player-panel{
+ background:#102e52;
+ color:white;
+ border-radius:14px;
+ padding:20px;
+ margin-bottom:20px
+}
+.player-panel h2{color:white}
+.player-info{color:#cbdcf1;font-size:13px;line-height:1.8}
+audio{width:100%;margin-top:12px}
+.bulletin{
+ padding:15px 0;
+ border-bottom:1px solid #edf0f5;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:12px
+}
 .bulletin:last-child{border:0}
-.bulletin h3{font-size:16px;margin:0 0 7px}
-.bulletin p{font-size:13px;color:#64748b;margin:0 0 10px}
-.play{background:#1762a9;color:white}
-.empty{text-align:center;padding:35px 10px;color:#64748b}
-footer{text-align:center;color:#718096;padding:25px;font-size:13px}
-@media(max-width:650px){.filters{grid-template-columns:1fr}header h1{font-size:22px}}
+.bulletin h3{font-size:15px;margin:0 0 7px}
+.bulletin p{font-size:12px;color:#64748b;margin:0}
+.play{
+ background:#1762a9;
+ color:white;
+ white-space:nowrap
+}
+.status{font-size:13px;color:#64748b}
+.empty{text-align:center;padding:30px;color:#64748b}
+.tag{
+ font-size:11px;
+ background:#eaf2ff;
+ color:#174b87;
+ padding:5px 9px;
+ border-radius:20px
+}
+footer{text-align:center;padding:25px;color:#718096;font-size:13px}
+@media(max-width:650px){
+ .filters,.filter-extra{grid-template-columns:1fr}
+ header h1{font-size:22px}
+ .panel{padding:15px}
+ .bulletin{align-items:flex-start}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>తెలుగు ఆడియో వార్తలు</h1>
-<p>NSD Telugu • అన్ని RNU తెలుగు కేంద్రాలు</p>
+ <h1>తెలుగు ఆడియో వార్తలు</h1>
+ <p>NSD తెలుగు • అన్ని RNU తెలుగు కేంద్రాలు</p>
 </header>
 
 <main>
-<section class="panel">
-<h2>వార్తల ఆర్కైవ్</h2>
-<div class="tabs">
-<button class="active" data-type="all">అన్నీ</button>
-<button data-type="NSD">NSD తెలుగు</button>
-<button data-type="RNU">RNU తెలుగు</button>
-</div>
 
-<div class="filters">
-<input id="search" placeholder="వార్తల పేరు లేదా కేంద్రం వెతకండి">
-<input id="from" type="date" aria-label="From date">
-<input id="to" type="date" aria-label="To date">
-</div>
+<!-- SEARCH -->
+<section class="panel">
+ <h2>వార్తల కోసం వెతకండి</h2>
+
+ <div class="tabs">
+  <button class="active" data-type="all">అన్నీ</button>
+  <button data-type="NSD">NSD జాతీయ వార్తలు</button>
+  <button data-type="RNU">RNU ప్రాంతీయ వార్తలు</button>
+ </div>
+
+ <div class="filters">
+  <input id="search" placeholder="వార్తల పేరు లేదా కేంద్రం వెతకండి">
+  <div>
+   <label>తేదీ నుండి</label>
+   <input id="from" type="date">
+  </div>
+  <div>
+   <label>తేదీ వరకు</label>
+   <input id="to" type="date">
+  </div>
+ </div>
+
+ <div class="filter-extra">
+  <div>
+   <label>ప్రాంతం / కేంద్రం</label>
+   <select id="station">
+    <option value="">అన్ని కేంద్రాలు</option>
+   </select>
+  </div>
+  <div>
+   <label>బులెటిన్ రకం</label>
+   <select id="kind">
+    <option value="">అన్ని రకాలు</option>
+    <option value="NSD">జాతీయ వార్తలు</option>
+    <option value="RNU">ప్రాంతీయ వార్తలు</option>
+   </select>
+  </div>
+ </div>
 </section>
 
-<section class="panel">
-<h2>ఆడియో బులెటిన్లు</h2>
-<p class="status" id="count">ఆర్కైవ్ కనెక్షన్ ఇంకా ఏర్పాటు కాలేదు</p>
-<div id="results">
-<div class="empty">
-<p>🎧</p>
-<strong>తెలుగు ఆడియో బులెటిన్లు త్వరలో ఇక్కడ కనిపిస్తాయి</strong>
-<p>NewsOnAIR డేటా సింక్ కనెక్ట్ చేసిన తర్వాత ఆర్కైవ్ అందుబాటులోకి వస్తుంది.</p>
-</div>
-</div>
+<!-- TOP AUDIO PLAYER -->
+<section class="player-panel">
+ <h2>🎧 ఆడియో ప్లేయర్</h2>
+
+ <div id="playerTitle">వార్తలను ఎంచుకోండి</div>
+ <div class="player-info" id="playerInfo">
+  కేంద్రం: -- | తేదీ: -- | సమయం: --
+ </div>
+
+ <audio id="player" controls preload="none">
+  మీ బ్రౌజర్ ఆడియోకు మద్దతు ఇవ్వదు.
+ </audio>
+
+ <div class="player-info" id="playerStatus">
+  ఆడియో ఎంచుకోలేదు
+ </div>
 </section>
 
+<!-- BULLETIN LIST -->
 <section class="panel">
-<h2>ఆడియో ప్లేయర్</h2>
-<audio id="player" controls style="width:100%">
-మీ బ్రౌజర్ ఆడియో ప్లేబ్యాక్‌కు మద్దతు ఇవ్వదు.
-</audio>
-<p class="status" id="nowPlaying">ఆడియో ఎంచుకోలేదు</p>
+ <h2>వార్తల ఆర్కైవ్</h2>
+ <p class="status" id="count">ఆర్కైవ్ లోడ్ అవుతోంది...</p>
+ <div id="results">
+  <div class="empty">తెలుగు వార్తలు లోడ్ అవుతున్నాయి...</div>
+ </div>
 </section>
+
 </main>
 
 <footer>
-తెలుగు ఆడియో వార్తల ఆర్కైవ్ | NSD + RNU
+ తెలుగు ఆడియో వార్తల ఆర్కైవ్ | NSD + RNU
 </footer>
 
 <script>
-
 const ARCHIVE_URL =
-  "./archive.json?updated=" + Date.now();
+ "./archive.json?updated=" + Date.now();
 
 let bulletins = [];
 let category = "all";
 
-async function loadArchive() {
-  const status = document.getElementById("count");
+const player = document.getElementById("player");
 
-  try {
-    status.textContent = "వార్తలు లోడ్ అవుతున్నాయి...";
+function normalizeDate(value) {
+ if (!value) return "";
 
-    const response = await fetch(ARCHIVE_URL, {
-      cache: "no-store"
-    });
+ const iso = value.match(
+  /^(\d{4})-(\d{2})-(\d{2})/
+ );
 
-    if (!response.ok) {
-      throw new Error("Archive unavailable");
-    }
+ if (iso) return iso[0];
 
-    const data = await response.json();
-    bulletins = data.items || [];
+ const d = new Date(value);
 
-    render();
-    status.textContent =
-      bulletins.length + " తెలుగు బులెటిన్లు";
-  } catch (error) {
-    status.textContent =
-      "ఆర్కైవ్ లోడ్ కాలేదు. మళ్లీ ప్రయత్నించండి.";
-    console.error(error);
+ if (!Number.isNaN(d.getTime())) {
+  return [
+   d.getFullYear(),
+   String(d.getMonth()+1).padStart(2,"0"),
+   String(d.getDate()).padStart(2,"0")
+  ].join("-");
+ }
+
+ const parts = value.match(
+  /^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/
+ );
+
+ if (parts) {
+  const months = {
+   jan:"01",feb:"02",mar:"03",apr:"04",
+   may:"05",jun:"06",jul:"07",aug:"08",
+   sep:"09",oct:"10",nov:"11",dec:"12"
+  };
+
+  const month = months[parts[2].slice(0,3).toLowerCase()];
+  if (month) {
+   return `${parts[3]}-${month}-${parts[1].padStart(2,"0")}`;
   }
+ }
+
+ return "";
+}
+
+function getStation(b) {
+ return b.station || "Unknown station";
+}
+
+async function loadArchive() {
+ try {
+  const response = await fetch(ARCHIVE_URL, {
+   cache:"no-store"
+  });
+
+  if (!response.ok) throw new Error("Archive unavailable");
+
+  const data = await response.json();
+
+  bulletins = (data.items || []).map(b => ({
+   ...b,
+   normalizedDate:normalizeDate(b.date)
+  }));
+
+  buildStations();
+  render();
+
+ } catch(error) {
+  document.getElementById("count").textContent =
+   "ఆర్కైవ్ లోడ్ కాలేదు";
+
+  document.getElementById("results").textContent =
+   "archive.json ఫైల్ అందుబాటులో లేదు.";
+
+  console.error(error);
+ }
+}
+
+function buildStations() {
+ const select = document.getElementById("station");
+ const stations = [...new Set(
+  bulletins.map(getStation).filter(Boolean)
+ )].sort();
+
+ select.innerHTML =
+  '<option value="">అన్ని కేంద్రాలు</option>';
+
+ stations.forEach(name => {
+  const option = document.createElement("option");
+  option.value = name;
+  option.textContent = name;
+  select.appendChild(option);
+ });
+}
+
+function selectBulletin(b) {
+ const title = b.title || "తెలుగు వార్తలు";
+
+ document.getElementById("playerTitle").textContent = title;
+
+ document.getElementById("playerInfo").textContent =
+  `కేంద్రం: ${getStation(b)} | తేదీ: ${b.date || "--"} | సమయం: ${b.time || "--"}`;
+
+ const status = document.getElementById("playerStatus");
+
+ if (b.audio_url) {
+  player.src = b.audio_url;
+  status.textContent = "ఆడియో ప్లే అవుతోంది...";
+
+  player.play().catch(() => {
+   status.textContent =
+    "ప్లే చేయడానికి ప్లేయర్‌లో Play నొక్కండి.";
+  });
+ } else {
+  player.removeAttribute("src");
+  player.load();
+
+  status.textContent =
+   "ప్రత్యక్ష ఆడియో లింక్ లేదు. అసలు బులెటిన్ పేజీని తెరవండి.";
+
+  if (b.source_url) {
+   window.open(b.source_url,"_blank");
+  }
+ }
 }
 
 function render() {
-  const q = document.getElementById("search")
-    .value.toLowerCase();
+ const q = document.getElementById("search")
+  .value.toLowerCase().trim();
 
-  const from = document.getElementById("from").value;
-  const to = document.getElementById("to").value;
+ const from = document.getElementById("from").value;
+ const to = document.getElementById("to").value;
+ const station = document.getElementById("station").value;
+ const kind = document.getElementById("kind").value;
 
-  const filtered = bulletins.filter(b => {
-    const searchable =
-      (b.title + " " + b.station).toLowerCase();
+ const filtered = bulletins.filter(b => {
+  const title = (b.title || "").toLowerCase();
+  const sourceStation = getStation(b).toLowerCase();
+  const date = b.normalizedDate || "";
 
-    return (
-      (category === "all" || b.type === category) &&
-      searchable.includes(q) &&
-      (!from || b.date >= from) &&
-      (!to || b.date <= to)
-    );
-  });
+  return (
+   (category === "all" || b.type === category) &&
+   (!kind || b.type === kind) &&
+   (!station || getStation(b) === station) &&
+   (title + " " + sourceStation).includes(q) &&
+   (!from || (date && date >= from)) &&
+   (!to || (date && date <= to))
+  );
+ });
 
-  const results = document.getElementById("results");
-  results.innerHTML = "";
+ const results = document.getElementById("results");
+ results.innerHTML = "";
 
-  document.getElementById("count").textContent =
-    filtered.length + " బులెటిన్లు";
+ document.getElementById("count").textContent =
+  filtered.length + " బులెటిన్లు";
 
-  if (!filtered.length) {
-    results.textContent = "బులెటిన్లు కనుగొనబడలేదు.";
-    return;
-  }
+ if (!filtered.length) {
+  results.innerHTML =
+   '<div class="empty">వార్తలు కనుగొనబడలేదు.</div>';
+  return;
+ }
 
-  filtered.forEach(b => {
-    const item = document.createElement("div");
-    item.className = "bulletin";
+ filtered.forEach(b => {
+  const item = document.createElement("div");
+  item.className = "bulletin";
 
-    const title = document.createElement("h3");
-    title.textContent = b.title;
+  const details = document.createElement("div");
+  details.style.flex = "1";
 
-    const info = document.createElement("p");
-    info.textContent =
-      `${b.station} • ${b.date} • ${b.type}`;
+  const title = document.createElement("h3");
+  title.textContent = b.title || "తెలుగు వార్తలు";
 
-    const play = document.createElement("button");
-    play.className = "play";
-    play.textContent = "▶ వినండి";
+  const info = document.createElement("p");
+  info.textContent =
+   `${getStation(b)} • ${b.date || "--"} • ${b.time || "--"}`;
 
-    play.onclick = () => {
-      if (b.audio_url) {
-        const player = document.getElementById("player");
-        player.src = b.audio_url;
-        player.play();
-        document.getElementById("nowPlaying").textContent =
-          b.title;
-      } else if (b.source_url) {
-        window.open(b.source_url, "_blank");
-      } else {
-        alert("ఈ బులెటిన్‌కు ప్రత్యక్ష ఆడియో లింక్ అందుబాటులో లేదు.");
-      }
-    };
+  const tag = document.createElement("span");
+  tag.className = "tag";
+  tag.textContent =
+   b.type === "NSD" ? "జాతీయ వార్తలు" : "ప్రాంతీయ వార్తలు";
 
-    item.append(title, info, play);
-    results.appendChild(item);
-  });
+  details.append(title,info,tag);
+
+  const button = document.createElement("button");
+  button.className = "play";
+  button.textContent = "▶ వినండి";
+  button.onclick = () => selectBulletin(b);
+
+  item.append(details,button);
+  results.appendChild(item);
+ });
 }
 
-document.querySelectorAll("[data-type]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    category = btn.dataset.type;
+document.querySelectorAll("[data-type]").forEach(button => {
+ button.addEventListener("click",() => {
+  category = button.dataset.type;
 
-    document.querySelectorAll("[data-type]")
-      .forEach(x => x.classList.remove("active"));
+  document.querySelectorAll("[data-type]")
+   .forEach(x => x.classList.remove("active"));
 
-    btn.classList.add("active");
-    render();
-  });
+  button.classList.add("active");
+  render();
+ });
 });
 
-["search", "from", "to"].forEach(id => {
-  document.getElementById(id)
-    .addEventListener("input", render);
+["search","from","to","station","kind"].forEach(id => {
+ document.getElementById(id)
+  .addEventListener("input",render);
+
+ document.getElementById(id)
+  .addEventListener("change",render);
+});
+
+player.addEventListener("ended",() => {
+ document.getElementById("playerStatus").textContent =
+  "ఆడియో పూర్తయింది";
 });
 
 loadArchive();
- 
 </script>
+
 </body>
 </html>
-
