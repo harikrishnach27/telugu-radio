@@ -6,10 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
 <link rel="manifest" href="./manifest.json">
+<link rel="apple-touch-icon" href="./icons/icon-512.png">
 <meta name="theme-color" content="#FF9933">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="తెలుగు రేడియో">
 
 <title>తెలుగు రేడియో వార్తలు</title>
@@ -32,6 +33,16 @@
       <button id="installApp" class="install-button" hidden>
   📲 Install App
 </button>
+
+<button id="installApp" class="install-button" type="button">
+  📲 Install / Add to Home Screen
+</button>
+<button id="installHelp" class="install-button" type="button">
+  Installation help
+</button>
+
+
+      
 </header>
 
 
@@ -379,23 +390,6 @@ applyTheme(currentTheme);
 
 // REGISTER PWA SERVICE WORKER
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./service-worker.js")
-      .then(registration => {
-        console.log(
-          "PWA ready:",
-          registration.scope
-        );
-      })
-      .catch(error => {
-        console.error(
-          "PWA registration failed:",
-          error
-        );
-      });
-  });
-}
 // PWA INSTALLATION
 
 let deferredInstallPrompt;
@@ -430,6 +424,36 @@ window.addEventListener("appinstalled", () => {
 });
 loadArchive();
 </script>
+<section id="pwaUpdateBar" class="pwa-update-bar" hidden
+  role="status" aria-live="polite">
+  <span>A new Telugu Radio version is ready.</span>
+  <button id="pwaUpdateNow" type="button">Update now</button>
+  <button id="pwaUpdateLater" type="button">Later</button>
+</section>
 
+<dialog id="pwaInstallDialog" class="pwa-install-dialog">
+  <h2>Install Telugu Radio</h2>
+  <div id="iosInstallSteps" hidden>
+    <p><strong>iPhone / iPad (Safari)</strong></p>
+    <ol>
+      <li>Open this website in Safari.</li>
+      <li>Tap the Share button.</li>
+      <li>Choose “Add to Home Screen”.</li>
+      <li>Enable “Open as Web App” if it appears, then tap Add.</li>
+    </ol>
+  </div>
+  <div id="genericInstallSteps" hidden>
+    <p><strong>Android</strong>: use the browser menu and choose
+       “Install app” or “Add to Home screen”.</p>
+    <p><strong>Windows / macOS / Linux</strong>: in a supported Chromium
+       browser, use the install icon in the address bar or browser menu
+       → “Install Telugu Radio”.</p>
+    <p>If no install option appears, update your browser and open the site
+       over HTTPS. Firefox desktop may offer only a browser shortcut.</p>
+  </div>
+  <button id="pwaInstallClose" type="button">Close</button>
+</dialog>
+
+<script src="./pwa-manager.js" defer></script>
 </body>
 </html>
