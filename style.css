@@ -552,3 +552,35 @@ footer {
   }
 }
 
+/* PWA INSTALL BUTTON */
+
+.install-button {
+  position: absolute;
+  right: 5%;
+  top: 75px;
+  background: var(--maroon);
+  color: white;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 25px;
+  padding: 9px 15px;
+  font-size: 13px;
+}
+
+.install-button:hover {
+  background: var(--maroon-light);
+}
+
+.install-button[hidden] {
+  display: none;
+}
+
+@media(max-width:600px) {
+  .install-button {
+    right: 12px;
+    top: 65px;
+  }
+
+  header {
+    padding-bottom: 55px;
+  }
+}
