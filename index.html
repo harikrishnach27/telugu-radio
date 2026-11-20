@@ -5,6 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./style.css">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#FF9933">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="తెలుగు ఆడియో">
+
 <title>తెలుగు ఆడియో వార్తలు</title>
 </head>
 
@@ -367,8 +374,26 @@ themeToggle.addEventListener("click", () => {
 
 applyTheme(currentTheme);
 
+// REGISTER PWA SERVICE WORKER
 
- 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(registration => {
+        console.log(
+          "PWA ready:",
+          registration.scope
+        );
+      })
+      .catch(error => {
+        console.error(
+          "PWA registration failed:",
+          error
+        );
+      });
+  });
+}
+
 loadArchive();
 </script>
 
