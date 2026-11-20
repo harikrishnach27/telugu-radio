@@ -10,16 +10,16 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="తెలుగు ఆడియో">
+<meta name="apple-mobile-web-app-title" content="తెలుగు రేడియో">
 
-<title>తెలుగు ఆడియో వార్తలు</title>
+<title>తెలుగు రేడియో వార్తలు</title>
 </head>
 
 <body>
 
 
 <header>
- <h1>తెలుగు ఆడియో వార్తలు</h1>
+ <h1>తెలుగు రేడియో వార్తలు</h1>
  <p>NSD తెలుగు • అన్ని RNU తెలుగు కేంద్రాలు</p>
 
  <button
@@ -79,7 +79,7 @@
 
 <!-- TOP AUDIO PLAYER -->
 <section class="player-panel">
- <h2>🎧 ఆడియో ప్లేయర్</h2>
+ <h2>🎧 రేడియో ప్లేయర్</h2>
 
  <div id="playerTitle">వార్తలను ఎంచుకోండి</div>
  <div class="player-info" id="playerInfo">
@@ -87,11 +87,11 @@
  </div>
 
  <audio id="player" controls preload="none">
-  మీ బ్రౌజర్ ఆడియోకు మద్దతు ఇవ్వదు.
+  మీ బ్రౌజర్ రేడియోకు మద్దతు ఇవ్వదు.
  </audio>
 
  <div class="player-info" id="playerStatus">
-  ఆడియో ఎంచుకోలేదు
+  రేడియో ఎంచుకోలేదు
  </div>
 </section>
 
@@ -107,7 +107,7 @@
 </main>
 
 <footer>
- తెలుగు ఆడియో వార్తల ఆర్కైవ్ | NSD + RNU
+ తెలుగు రేడియో వార్తల ఆర్కైవ్ | NSD + RNU
 </footer>
 
 <script>
@@ -223,7 +223,7 @@ function selectBulletin(b) {
 
  if (b.audio_url) {
   player.src = b.audio_url;
-  status.textContent = "ఆడియో ప్లే అవుతోంది...";
+  status.textContent = "రేడియో ప్లే అవుతోంది...";
 
   player.play().catch(() => {
    status.textContent =
@@ -234,7 +234,7 @@ function selectBulletin(b) {
   player.load();
 
   status.textContent =
-   "ప్రత్యక్ష ఆడియో లింక్ లేదు. అసలు బులెటిన్ పేజీని తెరవండి.";
+   "ప్రత్యక్ష రేడియో లింక్ లేదు. అసలు బులెటిన్ పేజీని తెరవండి.";
 
   if (b.source_url) {
    window.open(b.source_url,"_blank");
@@ -331,7 +331,7 @@ document.querySelectorAll("[data-type]").forEach(button => {
 
 player.addEventListener("ended",() => {
  document.getElementById("playerStatus").textContent =
-  "ఆడియో పూర్తయింది";
+  "రేడియో పూర్తయింది";
 });
 
 
