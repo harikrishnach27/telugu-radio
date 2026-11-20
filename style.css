@@ -603,83 +603,53 @@ footer {
 .pwa-install-dialog::backdrop { background: #0008; }
 .pwa-install-dialog li { margin: .55rem 0; }
 
-/* Installation controls */
+/* Compact installation controls */
 header .install-actions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  gap: 12px;
-  width: 100%;
-  flex-basis: 100%;
-  margin: 14px auto;
-  position: relative;
+  gap: 6px;
+  margin: 6px 0;
+  padding: 0;
+  width: auto;
 }
 
 header .install-actions .install-button {
-  position: static !important;
-  inset: auto !important;
-  transform: none !important;
-  float: none !important;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: auto;
-  max-width: 100%;
-  min-height: 44px;
+  width: auto !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  padding: 7px 13px !important;
   margin: 0 !important;
-  padding: 11px 20px;
 
-  border-radius: 24px;
-  font: inherit;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
   font-weight: 600;
-  font-size: 15px;
-  line-height: 1.2;
+  border-radius: 18px;
   white-space: nowrap;
 
   cursor: pointer;
   box-sizing: border-box;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-/* Main install button */
 header .install-actions .install-primary {
   background: #a51f48;
-  color: #fff;
+  color: white;
   border: 1px solid #a51f48;
 }
 
-header .install-actions .install-primary:hover {
-  background: #861737;
-  transform: translateY(-1px);
-}
-
-/* Secondary help button */
 header .install-actions .install-help {
   background: transparent;
   color: #84203e;
-  border: 1px solid #a51f48;
+  border: none;
+  text-decoration: underline;
+  padding: 7px 9px !important;
 }
 
-header .install-actions .install-help:hover {
-  background: rgba(165, 31, 72, 0.09);
-}
-
-/* Small screens */
+/* Mobile */
 @media (max-width: 480px) {
   header .install-actions {
-    flex-direction: column;
-    gap: 9px;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-
-  header .install-actions .install-button {
-    width: 100%;
-    max-width: 320px;
-    white-space: normal;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
   }
 }
-
