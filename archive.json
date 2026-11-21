@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "21 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-3.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
       "type": "RNU",
       "title": "Vijayawada",
       "station": "Vijayawada",
@@ -49,6 +59,16 @@
       "time": "12:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telugu-2.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "21 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telugu-2.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
     },
     {
       "type": "NSD",
@@ -469,10 +489,30 @@
       "time": "20:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vishkha.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=15"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "17 Nov 2026",
+      "time": "20:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vishkha.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=16"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "17 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/nsd-hyd-text-19005.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=16"
     }
   ],
   "next_history_page": {
-    "NSD": 16,
-    "RNU": 16
+    "NSD": 17,
+    "RNU": 17
   }
 }
