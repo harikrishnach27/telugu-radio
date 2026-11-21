@@ -161,6 +161,16 @@
       "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=9"
     },
     {
+      "type": "RNU",
+      "title": "Hyderabad",
+      "station": "Hyderabad",
+      "language": "Telugu",
+      "date": "20 Nov 2026",
+      "time": "13:10",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/hy-1310-3.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=13"
+    },
+    {
       "type": "NSD",
       "title": "Telugu",
       "station": "Telugu",
@@ -339,10 +349,20 @@
       "time": "12:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/TELUGU-1.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=12"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "18 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/TELUGU-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=13"
     }
   ],
   "next_history_page": {
-    "NSD": 13,
-    "RNU": 13
+    "NSD": 14,
+    "RNU": 14
   }
 }
