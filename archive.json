@@ -11,6 +11,16 @@
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
     },
     {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "22 Nov 2026",
+      "time": "07:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/NATIONAL-TELUGU-NEWS-BULLETIN-07-3.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
       "type": "RNU",
       "title": "Vijayawada",
       "station": "Vijayawada",
@@ -622,7 +632,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 21,
-    "RNU": 21
+    "NSD": 22,
+    "RNU": 22
   }
 }
