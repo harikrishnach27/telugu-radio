@@ -5,6 +5,26 @@
       "title": "Telugu",
       "station": "Telugu",
       "language": "Telugu",
+      "date": "23 Nov 2026",
+      "time": "07:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/Telugu0705.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "RNU",
+      "title": "Vijayawada",
+      "station": "Vijayawada",
+      "language": "Telugu",
+      "date": "23 Nov 2026",
+      "time": "06:45",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vojay-audio.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=3"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
       "date": "22 Nov 2026",
       "time": "20:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-2030-1.mp3",
@@ -16,9 +36,29 @@
       "station": "Telugu",
       "language": "Telugu",
       "date": "22 Nov 2026",
+      "time": "20:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-2030-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "22 Nov 2026",
       "time": "19:05",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tlgu-1905.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "22 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tlgu-1905.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=3"
     },
     {
       "type": "RNU",
@@ -792,7 +832,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 28,
-    "RNU": 28
+    "NSD": 29,
+    "RNU": 29
   }
 }
