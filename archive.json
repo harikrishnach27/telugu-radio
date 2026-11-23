@@ -1029,10 +1029,20 @@
       "time": "20:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/teugu.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=33"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "15 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-1905-audio.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=34"
     }
   ],
   "next_history_page": {
-    "NSD": 34,
-    "RNU": 34
+    "NSD": 35,
+    "RNU": 35
   }
 }
