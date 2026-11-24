@@ -1,6 +1,36 @@
 {
   "items": [
     {
+      "type": "RNU",
+      "title": "Vijayawada",
+      "station": "Vijayawada",
+      "language": "Telugu",
+      "date": "24 Nov 2026",
+      "time": "13:20",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vjy-audio.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=2"
+    },
+    {
+      "type": "RNU",
+      "title": "Hyderabad",
+      "station": "Hyderabad",
+      "language": "Telugu",
+      "date": "24 Nov 2026",
+      "time": "13:10",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/HYDRABAD1310-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "24 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/TELGU1230.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
       "type": "NSD",
       "title": "Telugu",
       "station": "Telugu",
@@ -9,6 +39,16 @@
       "time": "07:05",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-audio-4.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "24 Nov 2026",
+      "time": "07:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-audio-4.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=3"
     },
     {
       "type": "RNU",
@@ -39,6 +79,16 @@
       "time": "20:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-n.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "23 Nov 2026",
+      "time": "20:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-n.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=3"
     },
     {
       "type": "NSD",
@@ -379,6 +429,16 @@
       "time": "18:10",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/hyd-1810-7.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=33"
+    },
+    {
+      "type": "RNU",
+      "title": "Visakhapatnam",
+      "station": "Visakhapatnam",
+      "language": "Telugu",
+      "date": "21 Nov 2026",
+      "time": "18:10",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/Visakhapatnam-14.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=38"
     },
     {
       "type": "RNU",
@@ -1109,10 +1169,20 @@
       "time": "12:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/NATIONAL-TELUGU-NEWS-BULLETIN-12-1.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=37"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "15 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/NATIONAL-TELUGU-NEWS-BULLETIN-12-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=38"
     }
   ],
   "next_history_page": {
-    "NSD": 38,
-    "RNU": 38
+    "NSD": 39,
+    "RNU": 39
   }
 }
