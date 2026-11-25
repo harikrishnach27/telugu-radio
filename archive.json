@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "type": "RNU",
+      "title": "Vijayawada",
+      "station": "Vijayawada",
+      "language": "Telugu",
+      "date": "25 Nov 2026",
+      "time": "06:45",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/VIJAYWADA645-2.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=2"
+    },
+    {
       "type": "NSD",
       "title": "Telugu",
       "station": "Telugu",
@@ -19,6 +29,16 @@
       "time": "19:05",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/hyd-aud-19005.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "24 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/hyd-aud-19005.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=3"
     },
     {
       "type": "RNU",
@@ -1259,10 +1279,30 @@
       "time": "19:05",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telugu-1.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=42"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "14 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/telgu-1230-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=44"
+    },
+    {
+      "type": "NSD",
+      "title": "तेलुगु",
+      "station": "तेलुगु",
+      "language": "Telugu",
+      "date": "11 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tel-1230-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
     }
   ],
   "next_history_page": {
-    "NSD": 44,
-    "RNU": 44
+    "NSD": 45,
+    "RNU": 45
   }
 }
