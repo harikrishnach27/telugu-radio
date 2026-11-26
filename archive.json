@@ -1492,6 +1492,16 @@
     },
     {
       "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "13 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tel-ad-19005.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=51"
+    },
+    {
+      "type": "NSD",
       "title": "तेलुगु",
       "station": "तेलुगु",
       "language": "Telugu",
@@ -1502,7 +1512,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 51,
-    "RNU": 51
+    "NSD": 52,
+    "RNU": 52
   }
 }
