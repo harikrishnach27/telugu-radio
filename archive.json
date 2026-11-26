@@ -1,6 +1,16 @@
 {
   "items": [
     {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "26 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tel-ad-19005-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
       "type": "RNU",
       "title": "Vijayawada",
       "station": "Vijayawada",
@@ -39,6 +49,16 @@
       "time": "12:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/TELUGU-1230-1.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "26 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/TELUGU-1230-1.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=2"
     },
     {
       "type": "NSD",
@@ -1662,7 +1682,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 56,
-    "RNU": 56
+    "NSD": 57,
+    "RNU": 57
   }
 }
