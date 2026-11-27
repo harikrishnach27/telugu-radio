@@ -1962,6 +1962,26 @@
     },
     {
       "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "11 Nov 2026",
+      "time": "20:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/2030vv.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=66"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "11 Nov 2026",
+      "time": "19:05",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/hyd-text-19005.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=66"
+    },
+    {
+      "type": "NSD",
       "title": "तेलुगु",
       "station": "तेलुगु",
       "language": "Telugu",
@@ -1972,7 +1992,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 66,
-    "RNU": 66
+    "NSD": 67,
+    "RNU": 67
   }
 }
