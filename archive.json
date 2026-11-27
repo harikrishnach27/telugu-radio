@@ -2,6 +2,16 @@
   "items": [
     {
       "type": "RNU",
+      "title": "Hyderabad",
+      "station": "Hyderabad",
+      "language": "Telugu",
+      "date": "27 Nov 2026",
+      "time": "18:10",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/1810-audio-2.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=1"
+    },
+    {
+      "type": "RNU",
       "title": "Vijayawada",
       "station": "Vijayawada",
       "language": "Telugu",
@@ -9,6 +19,16 @@
       "time": "13:20",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/Vijayawada-12.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=2"
+    },
+    {
+      "type": "RNU",
+      "title": "Vijayawada",
+      "station": "Vijayawada",
+      "language": "Telugu",
+      "date": "27 Nov 2026",
+      "time": "13:20",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/Vijayawada-12.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=3"
     },
     {
       "type": "RNU",
@@ -639,6 +659,16 @@
       "time": "06:45",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vojay-audio.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=3"
+    },
+    {
+      "type": "RNU",
+      "title": "Vijayawada",
+      "station": "Vijayawada",
+      "language": "Telugu",
+      "date": "23 Nov 2026",
+      "time": "06:45",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/vojay-audio.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/regional-audio/?page=63"
     },
     {
       "type": "NSD",
@@ -1892,7 +1922,7 @@
     }
   ],
   "next_history_page": {
-    "NSD": 63,
-    "RNU": 63
+    "NSD": 64,
+    "RNU": 64
   }
 }
