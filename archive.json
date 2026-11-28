@@ -1989,10 +1989,20 @@
       "time": "12:30",
       "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tel-1230-1.mp3",
       "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=1"
+    },
+    {
+      "type": "NSD",
+      "title": "Telugu",
+      "station": "Telugu",
+      "language": "Telugu",
+      "date": "11 Nov 2026",
+      "time": "12:30",
+      "audio_url": "https://newsonair.gov.in/wp-content/uploads/2026/11/tel-1230-2.mp3",
+      "source_url": "https://newsonair.gov.in/bulletins-category/nsd-audio/?page=67"
     }
   ],
   "next_history_page": {
-    "NSD": 67,
-    "RNU": 67
+    "NSD": 68,
+    "RNU": 68
   }
 }
